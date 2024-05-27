@@ -1,0 +1,497 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+// mobile
+.mobile-menu{
+    display: none;
+    .menu {
+        display: flex;
+        height: 100vh;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(69, 146, 127, 0.9);
+        opacity: 0;
+        z-index: 9999;
+        position: fixed;
+        transition: opacity 0.3s ease;
+        &.active {
+          opacity: 1;
+          z-index: 9999;
+        }
+        .menuContent {
+          padding: 30px 10px;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          ul {
+            padding: 20px;
+            margin: 0;
+            li {
+              list-style-type: none;
+              padding: 10px 0;
+              a {
+                font-family: "Noto Sans JP", sans-serif;
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+                font-size: 16px;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      .header-mobile {
+        display: flex;
+        width: 100%;
+        background-color: white;
+        height: 60px;
+        z-index:9999999999999;
+        align-items: center;
+        position: fixed;
+    }
+    .logo-mobile{
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: bolder;
+        font-size: 28px;
+        color: rgba(13, 188, 145, 1);
+        padding: 0 10px;
+        cursor: pointer;
+    }
+      .contact-mobile{
+        font-family: "Noto Sans JP", sans-serif;
+        display: flex;
+        font-weight: bolder;
+        font-size: 16px;
+        display: flex;
+        margin: 0 20px 0 0;
+        flex-direction: column;
+        margin-left: auto;
+        justify-content: right;
+    
+      }
+      .city{
+        padding-top: 5px;
+        font-weight: 400;
+        font-size: 13px;
+        display: flex;
+        margin-left: auto;
+    
+      }
+      .menu-toggle {
+        padding:  10px 20px;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+    
+        cursor: pointer;
+        .bar {
+          width: 50px;
+          height: 4px;
+          background-color: rgba(69, 146, 127);
+          margin: 10px 0;
+          transition: 0.3s;
+        }
+      }
+      
+      .bar.cross:nth-child(1) {
+        transform:translateY(10px) rotate(45deg);
+      }
+      
+      .bar.cross:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .bar.cross:nth-child(3) {
+        transform:translateY(-16px) rotate(-45deg);
+      }
+    
+      .button{
+        font-family: "Noto Sans JP", sans-serif;
+        display: flex;
+        font-size: 14px;
+        cursor: pointer;
+        width: 196px;
+        justify-content: center;
+        font-weight: bolder;
+        color: rgba(69, 146, 127);
+        background-color: white;
+        border-radius: 50px;
+        padding: 20px;
+        margin: 40px 0px;
+        transition: 0.3s;
+      }
+      .button:hover {
+        color: white;
+        background-color:rgba(13, 188, 145, 1);
+    }
+    @media only screen and (max-width: 768px) {
+        display: block;
+      }
+}
+
+// header
+.header{
+    padding: 20px 0px;
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    align-items: center;
+    height: 67px;
+    justify-content: space-between;
+    @media only screen and (max-width: 1600px) {
+        width: 90%;
+      }
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
+      .main{
+        display: flex;
+    }
+    
+    .logo{
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: bolder;
+        font-size: 32px;
+        color: rgba(13, 188, 145, 1);
+        padding-right: 20px;
+        cursor: pointer;
+    }
+    
+    .location{
+        font-family: "PT Sans Caption", sans-serif;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+    }
+    
+    .logoAndCity{
+        font-weight: 400;
+        color: rgb(0, 0, 0);
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    
+    .street{
+        margin: 0 0 0 20px;
+        color: rgba(134, 134, 134, 1);
+    }
+
+    .info{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .whatsapp{
+        font-family: "PT Sans Caption", sans-serif;
+        font-weight: 400;
+        color: rgb(0, 0, 0);
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .button{
+        font-family: "Noto Sans JP", sans-serif;
+        display: flex;
+        font-size: 14px;
+        cursor: pointer;
+        width: 196px;
+        justify-content: center;
+        font-weight: bolder;
+        color: white;
+        background-color:rgba(13, 188, 145, 1);
+        border-radius: 50px;
+        transition: 0.3s;
+        padding: 12px 10px;
+      }
+      .button:hover {
+        background-color: rgba(0, 210, 159, 1);
+       
+    }
+}
+
+// navbar
+.nav-container{
+    width: 100%;
+    background-color: rgba(31, 161, 129, 1);
+    .navbar{
+        padding: 20px 0px;
+        display: flex;
+        width: 60%;
+        margin: 0 auto;
+        align-items: center;
+        height: 43px;
+        justify-content: space-between;
+    
+        @media only screen and (max-width: 1600px) {
+            width: 90%;
+          }
+          @media only screen and (max-width: 768px) {
+            display: none;
+          }
+    
+          .menu{
+          font-family: "PT Sans Caption", sans-serif;
+          display: flex;
+          gap: 20px;
+          text-decoration: none;
+    
+        }
+    }
+}
+
+// banner
+.container {
+    display: flex;
+    margin: 0 auto;
+    height: 533px;
+    @media only screen and (max-width: 1600px) {
+        width: 100%;
+    }
+    @media only screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+    }
+    .left, .right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .left {
+        background-color: #F0F0F0; 
+        @media only screen and (max-width: 768px) {
+            height: 50%; 
+        }
+    }
+    
+    .content {
+        width: 60%;
+        font-family: "Noto Sans JP", sans-serif;
+        margin-left: auto;
+        @media only screen and (max-width: 1600px) {
+            width: 90%;
+        }
+        @media only screen and (max-width: 768px) {
+            margin-left: 0;
+        }
+    }
+    
+    .tittle{
+        width: 60%;
+        font-size: 36px;
+        font-weight: bold;
+        padding: 0 0 20px 0;
+        color: rgba(54, 72, 68, 1);
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+    
+    .lorem{
+        font-size: 16px;
+        width: 70%;
+    }
+    
+    .right {
+        background-image: url('../../public/back.png');
+        background-size: cover;
+        background-position: center;
+        @media only screen and (max-width: 768px) {
+            height: 50%; 
+        }
+    }
+}
+
+// slider
+.slider {
+    margin: 100px auto 10px auto;
+    display: flex;
+    width: 60%;
+    height: 440px;
+    position: relative; 
+    @media only screen and (max-width: 1600px) {
+        width: 90%;
+    }
+    @media only screen and (max-width: 1200px) {
+        flex-direction: column-reverse;
+    }
+    @media only screen and (max-width: 768px) {
+        margin: 20px auto;
+    }
+    .text {
+        flex: 1;
+        background-color: rgba(226, 240, 239, 1);
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        padding: 0 90px;
+        width: 50%;
+        font-family: "Noto Sans JP", sans-serif;
+        justify-content: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        @media only screen and (max-width: 1200px) {
+            width: 100%;
+            padding: 0px;
+    
+        }
+    }
+    
+    .tittle{
+        padding-bottom: 6px;
+        font-size: 38px;
+        padding-top: 20px;
+        font-weight: 700;
+        color: rgba(54, 72, 68, 1);
+        @media only screen and (max-width: 768px) {
+            padding-top: 10px;
+        }
+    }
+    
+    .subtittle{
+        font-size: 22px;
+        font-weight: 700;
+        color: rgba(54, 72, 68, 1);
+    }
+    
+    .dots {
+        padding: 20px 10px;
+        list-style: none;
+        padding-left: 0;
+    }
+    
+    .dots li {
+        color: rgba(54, 72, 68, 1);
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px; 
+    }
+    
+    .dots li:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px; 
+        height: 10px;
+        background-image: url('../../public/krug.png'); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 10px; 
+    }
+    
+    .price{
+        align-items: center;
+        display: flex;
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .old{
+        padding-left: 10px;
+        color: rgba(134, 134, 134, 1);
+        font-size: 16px;
+        text-decoration:line-through;
+    }
+    
+    .buttons{
+        display: flex;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .button1{
+        cursor: pointer;
+        background-color: rgba(13, 188, 145, 1);
+        color:white;
+        border-radius: 20px;
+        padding: 10px 30px;
+    }
+    
+    .button2{
+        cursor: pointer;
+        color:rgba(13, 188, 145, 1);
+        padding: 10px 30px;
+        border: 2px solid rgba(13, 188, 145, 1); /* Цвет и ширина границы */
+        border-radius: 20px;
+    }
+    
+    .image {
+    
+        width: 50%;
+        height: 100%;
+        background-image: url('../../public/doctor.png');
+        background-size:cover;
+        @media only screen and (max-width: 1200px) {
+            width: 100%;
+        }
+        @media only screen and (max-width: 768px) {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    
+    }
+
+}
+
+

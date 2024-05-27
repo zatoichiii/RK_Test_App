@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RocketTest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/styles.css">
+    <style>
+        .swiper-slide{
+            padding: 0 0 40px 0;
+        }
+        .swiper-pagination-bullet {
+            width: 15px;
+            height: 15px;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #0dbc91; 
+        }
+
+        .footer-container{
+            width: 100%;
+            color: white;
+            font-family: "Noto Sans JP", sans-serif;
+            background-color: rgba(8, 102, 79, 1);
+        }
+        
+        .footer{
+            width: 60%;
+            margin: auto;
+            height: 120px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        @media only screen and (max-width: 1400px) {
+            .footer {
+                width: 90%;
+                height: auto;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                align-items: baseline;
+            }
+        }
+
+        .logo{
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: bolder;
+        font-size: 32px;
+        padding: 10px 0 10px 0;
+        color: rgb(255, 255, 255);
+        padding-right: 20px;
+        cursor: pointer;
+        }
+        .elements{
+            align-items: center;
+            display: flex;
+            gap: 50px;
+        }
+        @media only screen and (max-width: 768px) {
+            .elements {
+                flex-direction: column;
+                align-items:baseline;
+                gap: 10px;
+            }
+        }
+        .icons{
+            padding: 10px 0 10px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal {
+            font-family: "Noto Sans JP", sans-serif;
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal input[type="text"], .modal input[type="email"] {
+            width: 100%;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .modal .submit-btn {
+            background-color: rgba(13, 188, 145, 1);
+            color: white;
+            padding: 5px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .modal .submit-btn:hover {
+            background-color: rgba(0, 210, 159, 1);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- mobile -->
+    <div class="mobile-menu">
+        <div class="header-mobile">
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="logo-mobile">LOGO</div>
+            <div class="contact-mobile">
+                <div class="phone">+7(863) 000 00 00</div>
+                <div class="city">Ростов-на-Дону</div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="menuContent">
+                <ul>
+                    <li><a href="/">О клинике</a></li>
+                    <li><a href="/">Услуги</a></li>
+                    <li><a href="/">Специалисты</a></li>
+                    <li><a href="/">Цены</a></li>
+                    <li><a href="/">Контакты</a></li>
+                    <a class="button"  onclick="openModal()" >Записаться на прием</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- header -->
+    <div class="header">
+        <div class="main">
+            <div class="logo">LOGO</div>
+            <div class="location">
+                <div class="logoAndCity">
+                    <img src="/public/location.png" alt="" />
+                    Ростов-на-Дону
+                </div>
+                <div class="street">ул. Ленина, 2Б</div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="whatsapp">
+                <img src="/public/whatsapp.png" alt="" />
+                +7(863) 000 00 00
+            </div>
+            <div class="button" onclick="openModal()">
+                Записаться на прием
+            </div>
+        </div>
+    </div>
+
+    <!-- navbar -->
+    <div class="nav-container">
+        <div class="navbar">
+            <ul class="menu">
+                <li><a href="/">О клинике</a></li>
+                <li><a href="/">Услуги</а></li>
+                <li><a href="/">Специалисты</a></li>
+                <li><a href="/">Цены</a></li>
+                <li><a href="/">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- banner -->
+    <div class="container">
+        <div class="left">
+            <div class="content">
+                <div class="tittle">
+                    Многопрофильная клиника для детей и взрослых
+                </div>
+                <div class="lorem">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                </div>
+            </div>
+        </div>
+        <div class="right"></div>
+    </div>
+
+    <!-- slider -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="slider">
+                    <div class="text">
+                        <div class="tittle">CHECK-UP</div>
+                        <div class="subtittle">для мужчин</div>
+                        <ul class="dots">
+                            <li>Гормональный скрининг</li>
+                            <li>Тестостерон</li>
+                            <li>Свободный тестостерон</li>
+                            <li>Глобулин, связывающий половые гормоны</li>
+                        </ul>
+                        <div class="price">
+                            <div class="new">Всего 2800₽</div>
+                            <div class="old">3500₽</div>
+                        </div>
+                        <div class="buttons">
+                            <div class="button1" onclick="openModal()">Записаться</div>
+                            <div class="button2">Подробнее</div>
+                        </div>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slider">
+                    <div class="text">
+                        <div class="tittle">CHECK-UP</div>
+                        <div class="subtittle">для мужчин</div>
+                        <ul class="dots">
+                            <li>Гормональный скрининг</li>
+                            <li>Тестостерон</li>
+                            <li>Свободный тестостерон</li>
+                            <li>Глобулин, связывающий половые гормоны</li>
+                        </ul>
+                        <div class="price">
+                            <div class="new">Всего 2800₽</div>
+                            <div class="old">3500₽</div>
+                        </div>
+                        <div class="buttons">
+                            <div class="button1" onclick="openModal()">Записаться</div>
+                            <div class="button2">Подробнее</div>
+                        </div>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slider">
+                    <div class="text">
+                        <div class="tittle">CHECK-UP</div>
+                        <div class="subtittle">для мужчин</div>
+                        <ul class="dots">
+                            <li>Гормональный скрининг</li>
+                            <li>Тестостерон</li>
+                            <li>Свободный тестостерон</li>
+                            <li>Глобулин, связывающий половые гормоны</li>
+                        </ul>
+                        <div class="price">
+                            <div class="new">Всего 2800₽</div>
+                            <div class="old">3500₽</div>
+                        </div>
+                        <div class="buttons">
+                            <div class="button1" onclick="openModal()">Записаться</div>
+                            <div class="button2">Подробнее</div>
+                        </div>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-container">
+        <div class="footer">
+            <div class="logo">LOGO</div>
+            <div class="elements">
+                    <a href="/">О клинике</a>
+                    <a href="/">Услуги</а>
+                    <a href="/">Специалисты</a>
+                    <a href="/">Цены</a>
+                    <a href="/">Контакты</a>
+                <div class="icons">
+                    <img src="/public/inst.png" alt="inst">
+                    <img src="/public/whatsapp.png" alt="whastp">
+                    <img src="/public/tg.png" alt="tg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Записаться на прием</h2>
+            <form action="send_mail.php" method="post">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Телефон:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Swiper initialization
+        var swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Modal functionality
+        function openModal() {
+            document.getElementById('appointmentModal').style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById('appointmentModal').style.display = "none";
+        }
+
+        // Close the modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            var modal = document.getElementById('appointmentModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            var menuToggle = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+
+            var bars = menuToggle.querySelectorAll('.bar');
+            bars.forEach(bar => {
+                bar.classList.toggle('cross');
+            });
+        }
+    </script>
+    </script>
+</body>
+</html>
